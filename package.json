@@ -7,10 +7,13 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "react": "^16.8.6",
+    "react-burger-menu": "^2.6.11",
     "react-dom": "^16.8.6",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.0.5",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.0.1",
+    "react-web-tabs": "^1.0.1",
     "reactstrap": "^8.0.0"
   },
   "scripts": {

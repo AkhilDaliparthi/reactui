@@ -1,65 +1,65 @@
 import React, { Component } from "react";
-import "./App.css";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { loginAPI } from "./callApi";
+import Home from "./components/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Contact from "./components/Contact";
+import ReactDOM from "react-dom";
+import { slide as Menu } from "react-burger-menu";
+
+function RouterComponet() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" exact strict component={Home} />
+        <Route exact path="/about" exact strict component={Contact} />
+        <Route exact path="/contact" exact strict component={Contact} />
+      </Switch>
+    </Router>
+  );
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      password: "",
-      response: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.response = this.response.bind(this);
-    this.login = this.login.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
-
-  login(response) {
-    loginAPI("login/", response);
+  onClick(path) {
+    this.props.history.push(path);
+    RouterComponet();
   }
-
-  handleChange(e) {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  }
-
-  response() {
-    var response = {};
-    response["username"] = this.state.username;
-    response["password"] = this.state.password;
-    response["platform"] = "website";
-    this.login(response);
-  }
-
   render() {
     return (
-      <Form className="login">
-        <FormGroup>
-          <Label> Username </Label>
-          <Input
-            type="text"
-            placeholder="username"
-            name="username"
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label> Password </Label>
-          <Input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleChange}
-          />
-        </FormGroup>
-        <Button className="btn-lg btn-dark btn-block" onClick={this.response}>
-          Login
-        </Button>
-      </Form>
+      <Menu>
+        <a
+          id="home"
+          className="menu-item"
+          href="/"
+          onClick={() => {
+            this.onClick("/");
+          }}
+        >
+          Home
+        </a>
+        <a
+          id="about"
+          className="menu-item"
+          href="/about"
+          onClick={() => {
+            this.onClick("/");
+          }}
+        >
+          About
+        </a>
+        <a
+          id="contact"
+          className="menu-item"
+          href="/contact"
+          onClick={() => {
+            this.onClick("/contact");
+          }}
+        >
+          Contact
+        </a>
+      </Menu>
     );
   }
 }
