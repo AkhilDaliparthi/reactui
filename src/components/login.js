@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { loginAPI } from "./callApi";
+import { loginAPI } from "../api/callApi";
+import "../css/login.css";
 
 class login extends Component {
   constructor(props) {
@@ -65,3 +65,5 @@ class login extends Component {
     );
   }
 }
+
+export default login;

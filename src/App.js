@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import Home from "./components/Home";
+import Home from "./components/home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Contact from "./components/Contact";
-import ReactDOM from "react-dom";
+import Contact from "./components/contactUs";
 import { slide as Menu } from "react-burger-menu";
 
 function RouterComponet() {
@@ -24,7 +23,6 @@ class App extends Component {
   }
   onClick(path) {
     this.props.history.push(path);
-    RouterComponet();
   }
   render() {
     return (
