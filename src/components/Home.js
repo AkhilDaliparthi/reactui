@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./css/Home.css";
+import "./css/home.css";
 import { slide as Menu } from "react-burger-menu";
 
 class home extends Component {
@@ -24,11 +24,21 @@ class home extends Component {
           Home
         </a>
         <a
+          id="problem"
+          className="menu-item"
+          href="/problem"
+          onClick={() => {
+            this.onClick("/problem");
+          }}
+        >
+          Problem
+        </a>
+        <a
           id="contact"
           className="menu-item"
           href="/contact"
           onClick={() => {
-            this.onClick("/contact");
+            this.onClick("/contactUs");
           }}
         >
           Contact

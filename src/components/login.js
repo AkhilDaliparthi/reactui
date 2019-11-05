@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { loginAPI } from "../api/callApi";
-import "../css/login.css";
+import "./css/login.css";
 
 class login extends Component {
   constructor(props) {
@@ -57,10 +57,10 @@ class login extends Component {
             value={this.state.password}
             onChange={this.handleChange}
           />
+          <Button className="btn-lg btn-dark btn-block" onClick={this.response}>
+            Login
+          </Button>
         </FormGroup>
-        <Button className="btn-lg btn-dark btn-block" onClick={this.response}>
-          Login
-        </Button>
       </Form>
     );
   }
